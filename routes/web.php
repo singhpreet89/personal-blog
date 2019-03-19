@@ -17,3 +17,7 @@ Route::get('/about', 'PublicController@about');
 
 Route::get('/contact', 'PublicController@contact');
 Route::post('/contact', 'PublicController@contactPost');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
