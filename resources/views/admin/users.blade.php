@@ -1,1 +1,2 @@
-admin users
+@extends('layouts.admin')
+

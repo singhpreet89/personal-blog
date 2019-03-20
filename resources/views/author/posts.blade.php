@@ -1,1 +1,2 @@
-author posts
+@extends('layouts.admin')
+
