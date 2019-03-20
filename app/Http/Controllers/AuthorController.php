@@ -15,6 +15,8 @@ class AuthorController extends Controller
         // The name of the middleware here should be same as what is registered under the kernel.php
         // And we are explicitly passing the value author into the middleware
         $this->middleware('checkRole:author');
+
+        $this->middleware('auth');
     }
 
     public function dashboard()

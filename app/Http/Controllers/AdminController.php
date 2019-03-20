@@ -16,6 +16,7 @@ class AdminController extends Controller
         // The name of the middleware here should be same as what is registered under the kernel.php
         // And we are explicitly passing the value admin into the middleware
         $this->middleware('checkRole:admin');
+        $this->middleware('auth');
     }
     public function dashboard()
     {
