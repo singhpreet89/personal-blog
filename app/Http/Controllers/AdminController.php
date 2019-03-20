@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Http\Requests\CreatePost;
 use App\Post;
 use Illuminate\Http\Request;
@@ -37,7 +38,6 @@ class AdminController extends Controller
         $post->title = $request['title'];
         $post->content = $request['content'];
         $post->save();
-
         return back()->with('success', 'Post updated successfully');
     }
 
@@ -45,13 +45,20 @@ class AdminController extends Controller
     {
         $post = Post::where('id', $id)->first();
         $post->delete();
-
         return back();
     }
 
     public function comments()
     {
-        return view('admin.comments');
+        $comments = Comment::all();
+        return view('admin.comments', compact('comments'));
+    }
+
+    public function deleteComment($id)
+    {
+        $comment = Comment::where('id', $id)->first();
+        $comment->delete();
+        return back();
     }
 
     public function users()
