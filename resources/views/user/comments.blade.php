@@ -33,7 +33,7 @@
                                     <form id="deleteComment-{{ $comment->id }}" action="{{ route('deleteComment', $comment->id) }}" method="POST">
                                         @csrf
                                     </form>
-                                    <button type="button" class="btn btn-danger" onclick="document.getElementById('deleteComment-{{ $comment->id }}').submit()">X</button>
+                                    <button type="button" class="btn btn-danger" onclick="document.getElementById('deleteComment-{{ $comment->id }}').submit()"><i class="icon icon-close"></i> Delete</button>
                                 </td>
                             </tr>
                         @endforeach
