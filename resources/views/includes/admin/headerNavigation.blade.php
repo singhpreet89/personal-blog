@@ -5,6 +5,7 @@
 
     <a class="navbar-brand" href="{{ url('/') }}">
         <img src="{{ asset('admin/assets/imgs/logo.png') }}" alt="logo">
+        {{--<i class="icon icon-bell fa-2x"></i>--}}
     </a>
 
     <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
@@ -12,7 +13,9 @@
     </a>
 
     <ul class="navbar-nav ml-auto">
-
+        @if(Auth::user()->author == true)
+            <a href="{{ route('newPost') }}" class="btn btn-primary">New Post</a> |
+        @endif
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="{{ asset('admin/assets/imgs/avatar-1.png') }}" class="avatar avatar-sm" alt="logo">

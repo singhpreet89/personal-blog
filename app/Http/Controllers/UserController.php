@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Http\Requests\UserUpdate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -16,6 +18,12 @@ class UserController extends Controller
     public function comments()
     {
         return view('user.comments');
+    }
+
+    public function deleteComment($id)
+    {
+        Comment::where('id', $id)->where('user_id', Auth::id())->delete();
+        return back();
     }
 
     public function profile()
