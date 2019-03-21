@@ -31,12 +31,12 @@
                                 <td>{{ \Carbon\Carbon::parse($post->updated_at)->diffForHumans() }}</td>
                                 <td>{{ $post->comments->count() }}</td>
                                 <td class="form-row align-items-center">
-                                    <a href="{{ route('postEdit', $post->id) }}" class="btn btn-warning col-sm-3 mr-1">Edit</a>
+                                    <a href="{{ route('postEdit', $post->id) }}" class="btn btn-warning col-sm-4 mr-1">Edit</a>
 
                                     <form id="deletePost-{{ $post->id }}" action="{{ route('deletePost', $post->id) }}" method="POST">
                                         @csrf
                                     </form>
-                                    <a href="#" class="btn btn-danger col-sm-3 ml-1" onclick="document.getElementById('deletePost-{{ $post->id }}').submit()">Remove</a>
+                                    <a href="#" class="btn btn-danger col-sm-4 ml-1" onclick="document.getElementById('deletePost-{{ $post->id }}').submit()">Remove</a>
                                 </td>
                                 <td>
                                 </td>

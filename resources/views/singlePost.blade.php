@@ -31,10 +31,23 @@
             <hr><h2>Comments</h2><hr>
             @foreach($post->comments as $comment)
                 <p>{{ $comment->content }} <br> 
-                    <small>by {{ $comment->user->name }}, on {{ date_format($post->created_at, 'F d, Y') }}</small>
+                    <small>by {{ $comment->user->name }}, on {{ date_format($comment->created_at, 'F d, Y') }}</small>
                 </p>
                 <hr>
-            @endforeach    
+            @endforeach
+
+            @if(Auth::check())
+                <form action="{{ route('newComment') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <textarea class="form-control" name="comment" placeholder="Comment....." id="" cols="30" rows="4"></textarea>
+                        <input type="hidden" name="post" value={{ $post->id }}>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">Make Comment</button>
+                    </div>
+                </form>
+                @endif
         </div>
     </div>
 </article>
